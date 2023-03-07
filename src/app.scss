@@ -1,0 +1,9 @@
+@import "./scss/base/settings.scss";
+
+.app {
+  @include center-container();
+  outline: 1px solid green;
+  padding: 50px;
+  font-family: $cabin;
+  font-weight: $extra-bold;
+}

@@ -1,0 +1,151 @@
+/* Colors */
+$midnight: #25313c;
+$dark-blue: #1e2742;
+$cyan-blue: #6d7d8b;
+$blue: #4da0fd;
+$bg: #f5f5f5;
+$footer-bg: #252b3b;
+$spring-green: #0bbef2;
+$white: #ffffff;
+$light-grey: #bbc8d4;
+$cyan-blue-bg: #e8f3ff;
+
+/* Fonts */
+$cabin: "Cabin", sans-serif;
+$mulish: "Mulish", sans-serif;
+$karla: "Karla", sans-serif;
+
+/* Fonts */
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+$extra-bold: 800;
+
+/* Spacing */
+$width-lg: 80%;
+$width-header-lg: 90%;
+
+/* Spacing, generate margin and padding classes */
+
+/* 
+
+l : left
+
+r : right
+
+t : top
+
+b : bottom
+
+v : vertical (top and bottom)
+
+h : horizontal (left and right)
+
+a : all
+
+---------------------
+
+.ma-0	.ma-0 { margin: 0 }
+.mt-0	.mt-0 { margin-top: 0 }
+.ml-0	.ml-0 { margin-left: 0 }
+.mh-0	.mh-0 { margin-left: 0; margin-right: 0 }
+.mv-0	.mv-0 { margin-top: 0; margin-bottom: 0 }
+.pa-5	.pa-5 { padding: 5px }
+.pb-5	.pt-5 { padding-bottom: 5px }
+.pr-5	.pl-5 { padding-right: 5px }
+.ph-5	.ph-5 { padding-left: 5px; padding-right: 5px }
+.pv-5	.pv-5 { padding-top: 5px; padding-bottom: 5px }
+
+   */
+
+$spacing: 0, 5, 10, 12, 15, 16, 18, 20, 25, 30, 35, 40, 45, 48, 50, 55, 60, 70,
+  80, 85, 90, 95, 100, 105, 110, 115, 120, 130, 140, 150, 185; // Modify this to generate your spacing classes
+$unit: px;
+
+$directions: (
+  l: left,
+  t: top,
+  r: right,
+  b: bottom,
+  v: top,
+  h: left,
+);
+@mixin generateSpacing($prop, $short) {
+  @each $space in $spacing {
+    .#{$short}a-#{$space} {
+      #{$prop}: $space + $unit;
+    }
+    @each $key, $val in $directions {
+      .#{$short}#{$key}-#{$space} {
+        #{$prop}-#{$val}: $space + $unit;
+        @if $key == v {
+          #{$prop}-bottom: $space + $unit;
+        }
+        @if $key == h {
+          #{$prop}-right: $space + $unit;
+        }
+      }
+    }
+  }
+}
+@include generateSpacing(padding, p);
+@include generateSpacing(margin, m);
+
+/* Breakpoints */
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-max: 576px;
+
+// Small tablets (portrait view)
+$screen-md-max: 767px;
+
+// Tablets and small desktops
+$screen-lg-max: 991px;
+
+// Large tablets and desktops
+$screen-xl-max: 1200px;
+
+// Extra large desktops
+
+$screen-xxl-max: 1366px;
+
+/* ************  Mixins   ************* */
+
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (max-width: #{$screen-xxl-max}) {
+    @content;
+  }
+}
+
+@mixin center-container() {
+  width: $width-lg;
+  margin: 0 auto;
+}
