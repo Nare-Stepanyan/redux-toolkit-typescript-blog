@@ -1,0 +1,65 @@
+@import "../../scss/base/settings.scss";
+
+.wrapper {
+  background-color: $midnight;
+  color: $white;
+  .content {
+    @include center-container();
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    .socialMedia {
+      width: 25%;
+      .media {
+        @include footer-links();
+        a {
+          color: $white;
+        }
+        .mediaItem {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+    }
+    .title {
+      @include text-mulish(600, 14, 21);
+    }
+    .link {
+      @include footer-links();
+      color: $white;
+    }
+    .subscribe {
+      p {
+        @include text-mulish(600, 18, 29);
+      }
+      div {
+        position: relative;
+        input {
+          @include text-mulish(600, 16, 28);
+          width: 300px;
+          height: 100%;
+          outline: none;
+          border: none;
+          background-color: $bg;
+          &::placeholder {
+            color: $blue;
+            opacity: 1;
+          }
+        }
+        span {
+          position: absolute;
+          display: block;
+          color: $blue;
+          cursor: pointer;
+          top: 15px;
+          right: 15px;
+          a {
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+}
