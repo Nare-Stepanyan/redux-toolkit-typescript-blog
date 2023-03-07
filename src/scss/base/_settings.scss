@@ -23,7 +23,6 @@ $extra-bold: 800;
 
 /* Spacing */
 $width-lg: 80%;
-$width-header-lg: 90%;
 
 /* Spacing, generate margin and padding classes */
 
@@ -148,4 +147,20 @@ $screen-xxl-max: 1366px;
 @mixin center-container() {
   width: $width-lg;
   margin: 0 auto;
+}
+
+@mixin footer-links() {
+  font-family: $karla;
+  font-style: normal;
+  font-weight: $regular;
+  font-size: 14px;
+  line-height: 27px;
+}
+
+@mixin text-mulish($font-weight, $font-size, $line-height) {
+  font-family: $mulish;
+  font-style: normal;
+  font-weight: $font-weight;
+  font-size: $font-size + px;
+  line-height: $line-height + px;
 }
