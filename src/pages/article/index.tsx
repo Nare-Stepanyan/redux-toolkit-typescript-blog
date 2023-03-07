@@ -1,12 +1,12 @@
-import React from 'react'
-import Layout from '../../layout'
+import React from "react";
+import Layout from "../../layout";
 
 const Article = () => {
-    return (
-        <Layout>
-            <div>Article</div>
-        </Layout>
-    )
-}
+  return (
+    <Layout>
+      <div>Article</div>
+    </Layout>
+  );
+};
 
-export default Article
+export default Article;

@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./footer.module.scss";
 import { Link } from "react-router-dom";
 
