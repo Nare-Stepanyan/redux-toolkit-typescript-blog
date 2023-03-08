@@ -5,7 +5,7 @@ import headerlogo from "assets/images/headerlogo.png";
 import styles from "./header.module.scss";
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const { pathname } = window.location;
 
   return (
