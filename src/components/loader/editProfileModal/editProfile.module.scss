@@ -1,0 +1,15 @@
+@import "./../../../scss/base/settings";
+
+.modalTitle {
+  @include text-mulish(800, 24, 28);
+  color: $dark-blue;
+}
+.modalInput {
+  input {
+    @include text-mulish(400, 18, 22);
+    width: 100%;
+    border: 1px solid $cyan-blue;
+    border-radius: 4px;
+    outline: none;
+  }
+}
