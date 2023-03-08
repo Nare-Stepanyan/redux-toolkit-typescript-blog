@@ -1,0 +1,31 @@
+@import "./../../scss/base/settings";
+
+.wrapper {
+  @include center-container();
+  margin-top: 30px;
+  margin-bottom: 30px;
+  .title {
+    @include text-mulish(800, 24, 32);
+  }
+  .edit {
+    color: $blue;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .data {
+    @include text-mulish(400, 18, 22);
+    width: 400px;
+    @include md {
+      width: 300px;
+    }
+    span {
+      font-weight: 700;
+    }
+    .field {
+      border: 1px solid $light-grey;
+      width: 250px;
+      text-align: right;
+      border-radius: 4px;
+    }
+  }
+}
