@@ -1,0 +1,40 @@
+@import "./../../scss/base/settings";
+
+.wrapper {
+  @include center-container();
+  @include md {
+    width: 100%;
+  }
+  .homeTitle {
+    @include text-mulish(800, 48, 60);
+    color: $black;
+  }
+  .homeSubtitle {
+    @include text-mulish(600, 18, 29);
+    color: $cyan-blue;
+  }
+  .search {
+    input {
+      width: 370px;
+      border: 2px solid rgba(77, 160, 253, 0.42);
+      border-radius: 4px;
+      background: rgba(77, 160, 253, 0.1);
+      color: $blue;
+      border: none;
+      outline: none;
+      padding: 10px 30px;
+      border: 1px solid $blue;
+    }
+  }
+  .btn {
+    @include text-mulish(600, 14, 21);
+    width: 165px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: rgba(30, 39, 66, 0.1);
+    border-radius: 4px;
+    color: $cyan-blue;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,34 @@
+@import "./../../scss/base/settings";
+
+.wrapper {
+  width: 370px;
+  background-color: $white;
+  border-radius: 30px;
+  margin-bottom: 60px;
+  cursor: pointer;
+  .cover {
+    img {
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      height: 150px;
+      width: 100%;
+    }
+  }
+  .title {
+    @include article-title();
+    color: $midnight;
+  }
+  .text {
+    @include text-mulish(600, 14, 21);
+    color: $midnight;
+  }
+  .articleFooter {
+    @include text-mulish(600, 12, 18);
+    color: $cyan-blue;
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+  }
+}
