@@ -21,13 +21,13 @@ const Header = () => {
             className="justify-content-end align-items-center"
           >
             <Nav className={`${styles.links} d-flex align-items-md-center`}>
-              <Nav.Link href="#" className="mr-30">
+              <Nav.Link href="/" className="mr-30">
                 Products
               </Nav.Link>
-              <Nav.Link href="#" className="mr-30">
+              <Nav.Link href="/" className="mr-30">
                 Services
               </Nav.Link>
-              <Nav.Link href="#" className="mr-30">
+              <Nav.Link href="/" className="mr-30">
                 Contact
               </Nav.Link>
               <Nav.Link href="/profile" className="mr-30">

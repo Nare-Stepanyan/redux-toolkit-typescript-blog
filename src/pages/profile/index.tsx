@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import EditProfileModal from "components/loader/editProfileModal";
+import EditProfileModal from "components/editProfileModal";
 import styles from "./profile.module.scss";
 import { IUser } from "types.ts";
 
