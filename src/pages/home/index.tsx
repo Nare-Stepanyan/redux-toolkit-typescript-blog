@@ -1,12 +1,15 @@
-import React from 'react'
-import Layout from '../../layout'
+import React from "react";
+import Layout from "layout";
 
 const Home = () => {
-    return (
-        <Layout>
-            <div>Home</div>
-        </Layout>
-    )
-}
+  return (
+    <Layout>
+      <div className="d-flex">
+        <p>Home</p>
+        <p>Home2</p>
+      </div>
+    </Layout>
+  );
+};
 
 export default Home;

@@ -14,7 +14,7 @@ const FooterLinks = ({ title, list }: IArguments): JSX.Element => {
       <div>
         {list.map((item, i) => {
           return (
-            <Link to="#">
+            <Link to="#" key={i}>
               <p key={i} className={`${styles.link} mb-5`}>
                 {item}
               </p>

@@ -1,0 +1,29 @@
+@import "./../../scss/base/settings";
+
+.wrapper {
+  @include center-container();
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .navbar {
+    width: 100%;
+  }
+  .links {
+    a {
+      @include text-mulish(700, 16, 28);
+      color: $cyan-blue;
+      text-decoration-line: underline;
+    }
+    button {
+      @include text-mulish(700, 16, 24);
+      width: 128px;
+      background: rgba(77, 160, 253, 0.1);
+      color: $blue;
+      border: none;
+      outline: none;
+      border: 2px solid rgba(77, 160, 253, 0.42);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}

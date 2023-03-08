@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FooterLinks from "./footerLinks";
-import { useCases, explore, resources } from "./../../assets/constants";
-import logo from "../../assets/images/team.png";
+import { useCases, explore, resources } from "assets/constants";
+import logo from "assets/images/team.png";
 import MediaLinks from "./mediaLinks";
 import styles from "./footer.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
