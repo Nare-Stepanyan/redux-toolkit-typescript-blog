@@ -21,7 +21,7 @@ export const articleApi = createApi({
     getArticleById: builder.query<IArticle, number>({
       query: (id) => `/articles/${id}`,
     }),
-    getArticlesBySearch: builder.query<Array<IArticle>, number>({
+    getArticlesBySearch: builder.query<Array<IArticle>, string>({
       query: (searchTerm) => `articles?title_like=${searchTerm}`,
     }),
     createArticle: builder.mutation({
