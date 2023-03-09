@@ -8,6 +8,7 @@ import { authApi } from "redux/services/authApi";
 import { articleApi } from "redux/services/articleApi";
 import counterReducer from "redux/features/counter/counterSlice";
 import authReducer from "redux/features/authSlice";
+import articleReducer from "redux/features/articleSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,9 +16,12 @@ export const store = configureStore({
     [articleApi.reducerPath]: articleApi.reducer,
     counter: counterReducer,
     auth: authReducer,
+    article: articleReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware),
+    getDefaultMiddleware()
+      .concat(authApi.middleware)
+      .concat(articleApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
