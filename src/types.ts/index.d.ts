@@ -13,10 +13,15 @@ export interface IAuthState {
   isLoggedIn: boolean;
 }
 export interface IArticle {
-  cover: string;
+  id?: number;
+  image: string;
   title: string;
   text: string;
   avatar: string;
-  name: string;
+  author: string;
   date: Date;
 }
+
+export type IArticleState = {
+  articles: Array<IArticle>;
+};

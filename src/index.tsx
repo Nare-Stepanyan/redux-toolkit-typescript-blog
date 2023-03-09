@@ -11,7 +11,7 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader title="Loading..." />}>
       <Provider store={store}>
         <App />
       </Provider>
