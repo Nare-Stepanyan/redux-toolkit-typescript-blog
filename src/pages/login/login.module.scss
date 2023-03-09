@@ -1,0 +1,29 @@
+@import "./../../scss/base/settings";
+
+.wrapper {
+  form {
+    width: 370px;
+    p {
+      @include text-mulish(700, 24, 32);
+      color: $blue;
+    }
+    input {
+      width: 100%;
+      border: 1px solid $cyan-blue;
+      border-radius: 4px;
+      outline: none;
+      padding: 15px;
+    }
+    button {
+      @include text-mulish(700, 16, 24);
+      width: 100%;
+      background: rgba(77, 160, 253, 0.1);
+      color: $blue;
+      border: none;
+      outline: none;
+      border: 2px solid rgba(77, 160, 253, 0.42);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}
