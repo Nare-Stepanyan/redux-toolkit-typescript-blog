@@ -174,3 +174,10 @@ $screen-xxl-max: 1366px;
   font-size: 24px;
   line-height: 29px;
 }
+@mixin width-article() {
+  width: 700px;
+  margin: 0 auto;
+  @include md {
+    width: 100%;
+  }
+}

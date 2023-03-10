@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Moment from "react-moment";
 import styles from "./articleCard.module.scss";
 import avatar from "assets/images/avatar.png";
-import cover from "assets/images/cover.png";
 import { IArticle } from "types.ts";
 
 type IArticleCardProps = {
