@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Layout from "layout";
 import styles from "../login/login.module.scss";
-import { useAppDispatch } from "app/hooks";
 import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "redux/services/authApi";
 
