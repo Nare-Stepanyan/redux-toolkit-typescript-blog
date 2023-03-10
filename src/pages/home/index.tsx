@@ -3,7 +3,6 @@ import Layout from "layout";
 import {
   useCreateArticleMutation,
   useGetArticlesQuery,
-  useGetArticleByIdQuery,
   useGetArticlesBySearchQuery,
 } from "redux/services/articleApi";
 import ArticleCard from "components/articleCard";
@@ -30,7 +29,8 @@ const Home = () => {
   };
 
   if (isFetching) return <Loader title="Loading articles..." />;
-  if (isError) return <Error />;
+  if (isFetchingSearch) return <Loader title="Searching articles..." />;
+  if (isError || error) return <Error />;
   return (
     <Layout>
       <div className={styles.wrapper}>

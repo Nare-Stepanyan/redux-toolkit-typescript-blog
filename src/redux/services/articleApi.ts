@@ -18,7 +18,7 @@ export const articleApi = createApi({
     getArticles: builder.query<Array<IArticle>, number | void>({
       query: () => "/articles",
     }),
-    getArticleById: builder.query<IArticle, number>({
+    getArticleById: builder.query<IArticle, string | void>({
       query: (id) => `/articles/${id}`,
     }),
     getArticlesBySearch: builder.query<Array<IArticle>, string>({
