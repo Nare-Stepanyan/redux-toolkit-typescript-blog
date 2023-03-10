@@ -21,6 +21,7 @@ export interface IArticle {
   avatar?: string;
   author: string;
   date: string;
+  comments?: Array<string>;
 }
 
 export type IArticleState = {
