@@ -5,15 +5,24 @@
   @include md {
     width: 100%;
   }
-  .homeTitle {
-    @include text-mulish(800, 48, 60);
-    color: $black;
+  .titlePart {
+    @include md {
+      padding: 0 30px;
+    }
+    .homeTitle {
+      @include text-mulish(800, 48, 60);
+      color: $black;
+    }
+    .homeSubtitle {
+      @include text-mulish(600, 18, 29);
+      color: $cyan-blue;
+    }
   }
-  .homeSubtitle {
-    @include text-mulish(600, 18, 29);
-    color: $cyan-blue;
-  }
+
   .search {
+    @include md {
+      padding: 0 30px;
+    }
     input {
       width: 370px;
       border: 2px solid rgba(77, 160, 253, 0.42);
@@ -24,6 +33,9 @@
       outline: none;
       padding: 10px 30px;
       border: 1px solid $blue;
+      @include md {
+        width: 300px;
+      }
     }
   }
   .btn {

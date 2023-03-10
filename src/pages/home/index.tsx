@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "layout";
 import {
-  useCreateArticleMutation,
   useGetArticlesQuery,
   useGetArticlesBySearchQuery,
 } from "redux/services/articleApi";
@@ -11,37 +10,39 @@ import { IArticle } from "types.ts";
 import Loader from "components/loader";
 import Error from "components/error";
 import { useAppDispatch } from "app/hooks";
+import AddPostModal from "components/addPostModal";
 
 const Home = () => {
   const dispatch = useAppDispatch();
   const [searchTerm, setSearchTerm] = useState("");
+  const [toggleAddPost, setToggleAddPost] = useState(false);
   const { data: allArticles, isFetching, isError } = useGetArticlesQuery();
-  const {
-    data: searchData,
-    isFetching: isFetchingSearch,
-    error,
-  } = useGetArticlesBySearchQuery(searchTerm);
-
-  useEffect(() => {}, [searchTerm]);
+  const { data: searchData, error } = useGetArticlesBySearchQuery(searchTerm);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
+  const handleToggleAddPost = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setToggleAddPost(!toggleAddPost);
+  };
+
   if (isFetching) return <Loader title="Loading articles..." />;
-  if (isFetchingSearch) return <Loader title="Searching articles..." />;
   if (isError || error) return <Error />;
   return (
     <Layout>
       <div className={styles.wrapper}>
-        <div>
+        <div className={`${styles.titlePart}`}>
           <p className={`${styles.homeTitle} mb-20 mt-50`}>Blog posts</p>
           <p className={`${styles.homeSubtitle} mb-30`}>
             Our latest updates and blogs about managing your team
           </p>
         </div>
         <div
-          className={`${styles.search} d-flex justify-content-between align-items-center`}
+          className={`${styles.search} d-flex flex-column flex-md-row justify-content-md-between justify-content-start align-items-md-center`}
         >
           <input
             type="search"
@@ -50,8 +51,14 @@ const Home = () => {
             autoComplete="off"
             value={searchTerm}
             onChange={handleChange}
+            className="mb-20"
           />
-          <button className={`${styles.btn} pv-10`}>Add Post</button>
+          <button
+            className={`${styles.btn} pv-10 mb-20`}
+            onClick={(e) => handleToggleAddPost(e)}
+          >
+            Add Post
+          </button>
         </div>
         <div
           className={`${styles.articles} d-flex justify-content-around justify-content-xl-between align-items-center flex-wrap`}
@@ -68,6 +75,13 @@ const Home = () => {
           <button className={`${styles.btn} pv-10`}>Next &gt;</button>
         </div>
       </div>
+      {toggleAddPost && (
+        <AddPostModal
+          handleToggleAddPost={handleToggleAddPost}
+          toggleAddPost={toggleAddPost}
+          setToggleAddPost={setToggleAddPost}
+        />
+      )}
     </Layout>
   );
 };

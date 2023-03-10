@@ -17,9 +17,9 @@ export interface IArticle {
   image: string;
   title: string;
   text: string;
-  avatar: string;
+  avatar?: string;
   author: string;
-  date: Date;
+  date: string;
 }
 
 export type IArticleState = {
