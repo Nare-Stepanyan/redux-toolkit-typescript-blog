@@ -11,6 +11,7 @@ export const authSlice = createSlice({
   reducers: {
     logout: (state, action) => {
       localStorage.removeItem("user");
+      localStorage.removeItem("userData");
       state.isLoggedIn = action.payload;
     },
     setIsLoggedIn: (state, action) => {

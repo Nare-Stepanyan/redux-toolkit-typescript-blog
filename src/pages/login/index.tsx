@@ -21,8 +21,8 @@ export const Login = () => {
 
   useEffect(() => {
     if (data && data.accessToken) {
-      console.log(data, data.accessToken);
       localStorage.setItem("user", JSON.stringify(data.accessToken));
+      localStorage.setItem("userData", JSON.stringify(data.user));
       dispatch(setIsLoggedIn(true));
       navigate("/");
     }

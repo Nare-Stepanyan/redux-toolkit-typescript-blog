@@ -4,6 +4,7 @@ import Layout from "layout";
 import styles from "../login/login.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "redux/services/authApi";
+import Error from "components/error";
 
 type FormValues = {
   firstName: string;
@@ -27,6 +28,7 @@ const Register = () => {
     await registerUser(data);
   };
 
+  if (error) return <Error />;
   return (
     <Layout>
       <div

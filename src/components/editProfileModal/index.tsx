@@ -50,8 +50,7 @@ const EditProfileModal = ({
           <input
             type="text"
             name="password"
-            defaultValue={userData.password}
-            placeholder={userData.password}
+            placeholder="Change password"
             className="pa-15"
             onChange={handleInputChange}
           />
