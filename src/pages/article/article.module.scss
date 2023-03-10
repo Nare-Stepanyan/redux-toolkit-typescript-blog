@@ -12,6 +12,16 @@
     height: 56px;
     border-radius: 50%;
   }
+  .showBtn {
+    @include text-mulish(700, 16, 24);
+    background: rgba(77, 160, 253, 0.1);
+    color: $blue;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(77, 160, 253, 0.42);
+    border-radius: 4px;
+    cursor: pointer;
+  }
   .title {
     @include text-mulish(800, 48, 80);
     color: $midnight;

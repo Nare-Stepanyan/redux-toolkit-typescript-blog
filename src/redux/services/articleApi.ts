@@ -33,11 +33,21 @@ export const articleApi = createApi({
         };
       },
     }),
+    addCommentToArticle: builder.mutation({
+      query: ({ id, body }) => {
+        return {
+          url: `/articles/${id}`,
+          method: "PATCH",
+          body,
+        };
+      },
+    }),
   }),
 });
 
 export const {
   useCreateArticleMutation,
+  useAddCommentToArticleMutation,
   useGetArticlesQuery,
   useGetArticleByIdQuery,
   useGetArticlesBySearchQuery,

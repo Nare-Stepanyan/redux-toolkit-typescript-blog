@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "layout";
 import { useParams } from "react-router-dom";
 import Moment from "react-moment";
-import { useGetArticleByIdQuery } from "redux/services/articleApi";
+import {
+  useGetArticleByIdQuery,
+  useAddCommentToArticleMutation,
+} from "redux/services/articleApi";
 import Loader from "components/loader";
 import Error from "components/error";
 import avatar from "assets/images/avatar.png";
@@ -10,14 +13,62 @@ import styles from "./article.module.scss";
 
 const Article = () => {
   const { id } = useParams();
+  const [newComment, setNewComment] = useState<string>(" ");
   const { data, isFetching, error } = useGetArticleByIdQuery(id);
-  const [comments, setComments] = useState<Array<String>>([
-    "Cooment1",
-    "Commet2",
-  ]);
+  const [addCommentToArticle, { data: updatedArticle }] =
+    useAddCommentToArticleMutation();
+  const [showAllComments, setShowAllComments] = useState(false);
+  const [comments, setComments] = useState<Array<string>>([]);
 
+  useEffect(() => {
+    if (data && data.comments) {
+      setComments([...data.comments]);
+    }
+    if (updatedArticle && updatedArticle.comments) {
+      setComments([...updatedArticle.comments, ...comments]);
+    }
+  }, [data]);
   if (isFetching) return <Loader title="Loading the article..." />;
   if (error) return <Error />;
+
+  const handleShowClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setShowAllComments(!showAllComments);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setNewComment(e.target.value);
+  };
+
+  const handleSend = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    if (newComment) {
+      setNewComment("");
+      setComments([newComment, ...comments]);
+      const body = {
+        comments: [newComment, ...comments],
+      };
+      addCommentToArticle({ id, body });
+    }
+  };
+
+  const commentList = comments?.map((comment, i) => {
+    return (
+      <div
+        key={i}
+        className="mv-30 pa-10 d-flex justify-cotnent-start align-items-start"
+      >
+        <div className="mr-20">
+          <img src={avatar} alt="avatar" className={styles.avatar} />
+        </div>
+        <p className={styles.text}>{comment}</p>
+      </div>
+    );
+  });
+
   return (
     <Layout>
       <div className={`${styles.wrapper}`}>
@@ -52,16 +103,26 @@ const Article = () => {
               <p className={`${styles.author}`}>{data?.author}</p>
             </div>
           </div>
-          <hr className={`${styles.line} mb-30`} />
-          <div>
-            {comments?.map((comment, i) => {
-              return (
-                <p key={i} className="mv-30">
-                  {comment}
-                </p>
-              );
-            })}
-          </div>
+          {comments.length > 0 && (
+            <>
+              <hr className={`${styles.line} mb-30`} />
+              <div>
+                {showAllComments
+                  ? commentList
+                  : commentList.filter((_comment, i) => i < 5)}
+              </div>
+              <div className="d-flex justify-content-center align-items-center">
+                <button
+                  className={`${styles.showBtn} pa-10`}
+                  onClick={(e) => {
+                    handleShowClick(e);
+                  }}
+                >
+                  {showAllComments ? "View less" : "View more"}
+                </button>
+              </div>
+            </>
+          )}
           <hr className={`${styles.line} mb-50`} />
           <div className={`${styles.comment}`}>
             <p className={`${styles.join} mb-15`}>Join the conversation</p>
@@ -70,8 +131,24 @@ const Article = () => {
                 <img src={avatar} alt="avatar" className={styles.avatar} />
               </div>
               <div className={`${styles.textarea}`}>
-                <input type="textarea" placeholder="Comments" name="comment" />
+                <input
+                  type="textarea"
+                  placeholder="Comments"
+                  name="comment"
+                  onChange={handleChange}
+                  value={newComment}
+                />
               </div>
+            </div>
+            <div className="d-flex justify-content-center align-items-center">
+              <button
+                className={`${styles.showBtn} pa-10 mt-20`}
+                onClick={(e) => {
+                  handleSend(e);
+                }}
+              >
+                Send
+              </button>
             </div>
           </div>
         </div>
