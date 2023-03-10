@@ -9,10 +9,12 @@ import { articleApi } from "redux/services/articleApi";
 import counterReducer from "redux/features/counter/counterSlice";
 import authReducer from "redux/features/authSlice";
 import articleReducer from "redux/features/articleSlice";
+import { userApi } from "redux/services/userApi";
 
 export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
     [articleApi.reducerPath]: articleApi.reducer,
     counter: counterReducer,
     auth: authReducer,
@@ -21,6 +23,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(authApi.middleware)
+      .concat(userApi.middleware)
       .concat(articleApi.middleware),
 });
 

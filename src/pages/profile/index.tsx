@@ -1,20 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  useGetUserDataByIdQuery,
+  useUpdateUserDataMutation,
+} from "redux/services/userApi";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import EditProfileModal from "components/editProfileModal";
 import styles from "./profile.module.scss";
 import { IUser } from "types.ts";
 
 const Profile = () => {
-  const [userData, setUserData] = useState<IUser>({
-    firstName: "Ani",
-    lastName: "Cooper",
-    email: "anicooper@gmail.com",
-    password: "aniCoop/1",
-  });
+  const user: IUser = JSON.parse(localStorage.getItem("userData") || "{}");
+  const { data } = useGetUserDataByIdQuery(user?.id);
+  const [updateUserData, { data: updatedUser }] = useUpdateUserDataMutation();
+
+  useEffect(() => {
+    if (data) {
+      setUserData(data);
+    }
+    if (updatedUser) {
+      localStorage.setItem("userData", JSON.stringify(updatedUser));
+    }
+  }, [data]);
+
+  const [userData, setUserData] = useState<IUser>(user);
   const [editedData, setEditedData] = useState<IUser>(userData);
   const [toggleEdit, setToggleEdit] = useState(false);
+
   const handleToggleEdit = () => {
     setToggleEdit(!toggleEdit);
   };
@@ -23,6 +36,7 @@ const Profile = () => {
     setEditedData({ ...editedData, [name]: value });
   };
   const handleSaveEdit = () => {
+    updateUserData({ ...userData, ...editedData });
     setUserData({ ...userData, ...editedData });
     handleToggleEdit();
   };
@@ -56,12 +70,6 @@ const Profile = () => {
             <span>Last name: </span>
             <div className={`${styles.field} ml-30 pa-15`}>
               {userData.lastName}
-            </div>
-          </div>
-          <div className="d-flex justify-content-between  align-items-center pv-20">
-            <span>Password: </span>
-            <div className={`${styles.field} ml-30 pa-15`}>
-              {userData.password}
             </div>
           </div>
         </div>

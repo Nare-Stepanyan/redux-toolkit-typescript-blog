@@ -65,5 +65,13 @@
       "id": 12
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$218rxUJ2maY5xvoORJIc8u91KSMJeM6FxjUg1GXDe.54GStvSbul.",
+      "firstName": "Nare",
+      "lastName": "Stepanyan",
+      "id": 1
+    }
+  ]
 }
