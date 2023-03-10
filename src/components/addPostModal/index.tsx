@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { changeDateToString } from "helpers";
 import { Modal, Button } from "react-bootstrap";
 import { useCreateArticleMutation } from "redux/services/articleApi";
-
 import styles from "./addPost.module.scss";
-import { IArticle } from "types.ts";
+import { IArticle, IUser } from "types.ts";
 
 type IAddPostProps = {
   handleToggleAddPost: (
@@ -12,22 +11,41 @@ type IAddPostProps = {
   ) => void;
   toggleAddPost: boolean;
   setToggleAddPost: (bool: boolean) => void;
+  setNewCreatedPost: (article: IArticle) => void;
 };
 
 const AddPostModal = ({
   handleToggleAddPost,
   toggleAddPost,
   setToggleAddPost,
+  setNewCreatedPost,
 }: IAddPostProps) => {
   const [createArticle, { data, error }] = useCreateArticleMutation();
   const [newPost, setNewPost] = useState<IArticle>({
     title: "",
-    author: "User name",
+    author: "",
     image: "",
     text: "",
     date: "",
   });
   const [newPostData, setnewPostData] = useState<IArticle>(newPost);
+  const user: IUser = JSON.parse(localStorage.getItem("userData") || "{}");
+
+  useEffect(() => {
+    if (user && user.id) {
+      const author = `${user.firstName} ${user.lastName}`;
+      const date = changeDateToString(new Date());
+
+      setnewPostData({ ...newPostData, author, date });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      setNewCreatedPost(data);
+      setToggleAddPost(!toggleAddPost);
+    }
+  }, [data]);
 
   const handleAddPost = () => {
     createArticle(newPostData);
@@ -41,10 +59,8 @@ const AddPostModal = ({
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    const created_at = changeDateToString(new Date());
-    setnewPostData({ ...newPost, ...newPostData, date: created_at });
+    setnewPostData({ ...newPost, ...newPostData });
     handleAddPost();
-    setToggleAddPost(!toggleAddPost);
   };
   return (
     <Modal size="lg" show={toggleAddPost} backdrop="static">

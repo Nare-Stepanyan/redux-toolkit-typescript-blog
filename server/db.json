@@ -7,7 +7,14 @@
       "image": "https://media.istockphoto.com/id/1305615921/photo/young-man-shopping-online.jpg?s=1024x1024&w=is&k=20&c=7ZZgcdyZvMav2ctfj0Yk9X8DyaPTkFcLmll76bxvPPs=",
       "created_at": "2nd January,2022",
       "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.      ",
-      "comments": []
+      "comments": [
+        "now the button should be visible",
+        "and finally the last comment",
+        "one more comment",
+        "test comments",
+        "My second commet",
+        " My firts comment"
+      ]
     },
     {
       "id": 6,
@@ -55,19 +62,34 @@
       "comments": []
     },
     {
-      "title": "Images post",
-      "author": "User name",
-      "image": "https://yoast.com/cdn-cgi/image/width=1012%2Cheight=531%2Cdpr=2%2Cfit=cover%2Cf=auto%2Cquality=75%2Conerror=redirect/app/uploads/2016/03/Blog_images_FI.png",
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.      ",
-      "date": "",
-      "id": 12,
-      "comments": []
+      "title": "Testing add post",
+      "author": "Nare Stepanyan",
+      "image": "https://media.istockphoto.com/id/1448381453/photo/a-large-gray-craftsman-new-construction-house-with-a-landscaped-yard-and-leading-pathway.jpg?s=1024x1024&w=is&k=20&c=CClJgb31TdA08jHjZdvt5iLSgVU_WJWBVz3djojfUPE=",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus viverra ornare. Mauris eu mi rutrum, sagittis enim vestibulum, feugiat orci. In dictum dolor sit amet laoreet porta. Donec cursus luctus libero nec lacinia. Maecenas bibendum id turpis non dictum. Nullam quis felis volutpat, dictum libero quis, tincidunt purus. Donec sollicitudin, mauris in sodales congue, arcu mauris commodo mauris, et facilisis sapien lorem eget arcu. Sed bibendum lacus consectetur ligula laoreet scelerisque. Maecenas mi sapien, aliquet nec libero mattis, condimentum sollicitudin diam. Praesent dictum, nunc non imperdiet vehicula, tellus nisl interdum diam, non ultrices nunc nisi sit amet lectus. Quisque fermentum aliquet mauris, id mollis felis faucibus eget. Etiam viverra consequat nulla id egestas. Curabitur in leo in elit malesuada ullamcorper sit amet id ante. Suspendisse vehicula imperdiet enim ut finibus.  Proin vitae dolor ligula. Morbi gravida dolor sit amet orci commodo, eget semper metus vestibulum. Sed facilisis eleifend posuere. Vivamus eget lacus a erat sollicitudin suscipit non id magna. Curabitur ut gravida urna. Integer a pellentesque nulla. Mauris sit amet tincidunt libero. Curabitur lobortis velit vitae libero euismod, a ornare libero mollis.  Duis quis aliquet libero. Proin condimentum arcu eget dolor lacinia, ac faucibus purus ultrices. Vivamus sed leo nisl. Nam euismod felis a arcu tristique molestie. Maecenas rutrum ipsum in nisl suscipit, sit amet rhoncus lacus fringilla. Suspendisse volutpat tellus vel velit gravida hendrerit a non justo. Donec eget arcu quis nunc laoreet hendrerit. Nam lorem diam, laoreet ut fermentum a, imperdiet finibus mauris. Quisque pulvinar tortor dolor, id tempus orci convallis et. Vestibulum ut ullamcorper diam. Nunc maximus convallis consequat. Cras sit amet tincidunt velit. Pellentesque nec felis sed dolor feugiat tincidunt.",
+      "date": "2023-03-10T19:24:54.506Z",
+      "id": 15
+    },
+    {
+      "title": "Lorem Ipsum",
+      "author": "Nare Stepanyan",
+      "image": "https://media.istockphoto.com/id/1448381453/photo/a-large-gray-craftsman-new-construction-house-with-a-landscaped-yard-and-leading-pathway.jpg?s=1024x1024&w=is&k=20&c=CClJgb31TdA08jHjZdvt5iLSgVU_WJWBVz3djojfUPE=",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus viverra ornare. Mauris eu mi rutrum, sagittis enim vestibulum, feugiat orci. In dictum dolor sit amet laoreet porta. Donec cursus luctus libero nec lacinia. Maecenas bibendum id turpis non dictum. Nullam quis felis volutpat, dictum libero quis, tincidunt purus. Donec sollicitudin, mauris in sodales congue, arcu mauris commodo mauris, et facilisis sapien lorem eget arcu. Sed bibendum lacus consectetur ligula laoreet scelerisque. Maecenas mi sapien, aliquet nec libero mattis, condimentum sollicitudin diam. Praesent dictum, nunc non imperdiet vehicula, tellus nisl interdum diam, non ultrices nunc nisi sit amet lectus. Quisque fermentum aliquet mauris, id mollis felis faucibus eget. Etiam viverra consequat nulla id egestas. Curabitur in leo in elit malesuada ullamcorper sit amet id ante. Suspendisse vehicula imperdiet enim ut finibus.  Proin vitae dolor ligula. Morbi gravida dolor sit amet orci commodo, eget semper metus vestibulum. Sed facilisis eleifend posuere. Vivamus eget lacus a erat sollicitudin suscipit non id magna. Curabitur ut gravida urna. Integer a pellentesque nulla. Mauris sit amet tincidunt libero. Curabitur lobortis velit vitae libero euismod, a ornare libero mollis.",
+      "date": "2023-03-10T23:05:27.887Z",
+      "id": 16,
+      "comments": [
+        "Արտադրված Lorem Ipsum-ը, արդյունքում չունի կրկնություններ, հումորային բովանդակություն կամ այլ անիրական բառեր:",
+        "Շատ համակարգչային տպագրական ծրագրեր և ինտերնետային էջերի խմբագրիչներ այն օգտագործում են որպես իրենց ստանդարտ տեքստային մոդել, և հետևապես, ինտերնետում Lorem Ipsum-ի որոնման արդյունքում կարելի է հայտնաբերել էջեր, որոնք դեռ նոր են կերտվում: ",
+        "Հայտնի է, որ ընթերցողը, կարդալով հասկանալի տեքստ, չի կարողանա կենտրոնանալ տեքստի ձևավորման վրա: ",
+        "Հետաքրքրվողների համար ոտորև ներկայացված է 1500-ականներից ի վեր օգտագործվող Lorem Ipsum-ի ստանդարտ տեքստի մի հատված: ",
+        "Կան Lorem Ipsum-ի շատ տարբերակներ, սակայն շատերը աղավաղվել են տարաբնույթ, երբեմն նույնիսկ լատիներենից շատ հեռու և անհավանական բառերի և հումորի ավելացման արդյունքում: ",
+        "Հակառակ ընդհանուր պատկերացմանը` Lorem Ipsum-ը այդքան էլ պատահական հավաքված տեքստ չէ: Այս տեքստի արմատները հասնում են Ք.ա. 45թ. դասական լատինական գրականություն. այն 2000 տարեկան է:"
+      ]
     }
   ],
   "users": [
     {
       "email": "test@gmail.com",
-      "password": "$2a$10$r9D9PgW5Kba7OGOUVN56/eKu60h7jT0elFGJZTdJrdCtYaaDpJo3e",
+      "password": "$2a$10$rSvonqLoEr27mP5iH0sPrO5tiYKRrDBEbfZSKYc1Th3vWt3p2NuD2",
       "firstName": "Nare",
       "lastName": "Stepanyan",
       "id": 1
