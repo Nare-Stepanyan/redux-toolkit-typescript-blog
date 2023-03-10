@@ -9,15 +9,14 @@ import styles from "./home.module.scss";
 import { IArticle } from "types.ts";
 import Loader from "components/loader";
 import Error from "components/error";
-import { useAppDispatch } from "app/hooks";
 import AddPostModal from "components/addPostModal";
 
 const Home = () => {
-  const dispatch = useAppDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const [toggleAddPost, setToggleAddPost] = useState(false);
   const { data: allArticles, isFetching, isError } = useGetArticlesQuery();
   const { data: searchData, error } = useGetArticlesBySearchQuery(searchTerm);
+  const [newCreatedPost, setNewCreatedPost] = useState<IArticle>();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -63,12 +62,16 @@ const Home = () => {
         <div
           className={`${styles.articles} d-flex justify-content-around justify-content-xl-between align-items-center flex-wrap`}
         >
-          {searchData
+          {searchTerm && searchData
             ? searchData?.map((article: IArticle) => (
                 <ArticleCard key={`${article.id}`} article={article} />
               ))
-            : allArticles?.map((article: IArticle) => (
-                <ArticleCard key={`${article.id}`} article={article} />
+            : allArticles && newCreatedPost
+            ? [newCreatedPost, ...allArticles].map((article: IArticle, i) => (
+                <ArticleCard key={`${i}`} article={article} />
+              ))
+            : allArticles?.map((article: IArticle, i) => (
+                <ArticleCard key={`${i}`} article={article} />
               ))}
         </div>
         <div className={`mb-110 d-flex justify-content-center mt-10`}>
@@ -80,6 +83,7 @@ const Home = () => {
           handleToggleAddPost={handleToggleAddPost}
           toggleAddPost={toggleAddPost}
           setToggleAddPost={setToggleAddPost}
+          setNewCreatedPost={setNewCreatedPost}
         />
       )}
     </Layout>

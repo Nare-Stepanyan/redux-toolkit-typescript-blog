@@ -111,16 +111,18 @@ const Article = () => {
                   ? commentList
                   : commentList.filter((_comment, i) => i < 5)}
               </div>
-              <div className="d-flex justify-content-center align-items-center">
-                <button
-                  className={`${styles.showBtn} pa-10`}
-                  onClick={(e) => {
-                    handleShowClick(e);
-                  }}
-                >
-                  {showAllComments ? "View less" : "View more"}
-                </button>
-              </div>
+              {commentList.length > 5 && (
+                <div className="d-flex justify-content-center align-items-center">
+                  <button
+                    className={`${styles.showBtn} pa-10`}
+                    onClick={(e) => {
+                      handleShowClick(e);
+                    }}
+                  >
+                    {showAllComments ? "View less" : "View more"}
+                  </button>
+                </div>
+              )}
             </>
           )}
           <hr className={`${styles.line} mb-50`} />

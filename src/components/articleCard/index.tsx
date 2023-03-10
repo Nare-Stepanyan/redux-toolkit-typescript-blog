@@ -20,7 +20,10 @@ const ArticleCard = ({ article }: IArticleCardProps) => {
   return (
     <div
       className={`${styles.wrapper} mv-30`}
-      onClick={() => navigate(`/article/${article.id}`)}
+      onClick={(e) => {
+        e.preventDefault();
+        navigate(`/article/${article.id}`);
+      }}
     >
       <div className={`${styles.cover} mb-25`}>
         <img src={article.image} alt="cover" />

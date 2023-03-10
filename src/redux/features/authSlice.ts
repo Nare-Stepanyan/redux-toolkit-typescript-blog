@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IAuthState } from "types.ts";
 
+const user = JSON.parse(localStorage.getItem("userData") || "{}");
 const initialState: IAuthState = {
-  isLoggedIn: false,
+  isLoggedIn: user && user.id ? true : false,
 };
 
 export const authSlice = createSlice({
