@@ -38,7 +38,7 @@ const Article = () => {
     setShowAllComments(!showAllComments);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
     setNewComment(e.target.value);
   };
@@ -133,11 +133,13 @@ const Article = () => {
                 <img src={avatar} alt="avatar" className={styles.avatar} />
               </div>
               <div className={`${styles.textarea}`}>
-                <input
-                  type="textarea"
+                <textarea
                   placeholder="Comments"
                   name="comment"
-                  onChange={handleChange}
+                  cols={80}
+                  rows={10}
+                  style={{ height: "150px", width: "100%" }}
+                  onChange={(e) => handleChange(e)}
                   value={newComment}
                 />
               </div>

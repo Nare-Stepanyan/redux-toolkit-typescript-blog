@@ -22,8 +22,10 @@ const Header = () => {
     <div className={`${styles.wrapper} pv-30`}>
       {isLoggedIn && (
         <Navbar expand="md" className={styles.navbar}>
-          <Navbar.Brand href="/">
-            <img src={headerlogo} alt="logo" />
+          <Navbar.Brand>
+            <Link to="/">
+              <img src={headerlogo} alt="logo" />
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse
@@ -31,23 +33,23 @@ const Header = () => {
             className="justify-content-end align-items-center"
           >
             <Nav className={`${styles.links} d-flex align-items-md-center`}>
-              <Nav.Link href="/" className="mr-30">
+              <Link to="/" className="mr-30">
                 Products
-              </Nav.Link>
-              <Nav.Link href="/" className="mr-30">
+              </Link>
+              <Link to="/" className="mr-30">
                 Services
-              </Nav.Link>
-              <Nav.Link href="/" className="mr-30">
+              </Link>
+              <Link to="/" className="mr-30">
                 Contact
-              </Nav.Link>
-              <Nav.Link href="/profile" className="mr-30">
+              </Link>
+              <Link to="/profile" className="mr-30">
                 Profile
-              </Nav.Link>
-              <Nav.Link href="#" className="pr-0">
+              </Link>
+              <Link to="#" className="pr-0">
                 <button className="pv-15" onClick={handleLogout}>
                   Logout
                 </button>
-              </Nav.Link>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

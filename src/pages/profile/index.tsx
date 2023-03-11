@@ -36,6 +36,7 @@ const Profile = () => {
     setEditedData({ ...editedData, [name]: value });
   };
   const handleSaveEdit = () => {
+    if (editedData.firstName === "" || editedData.lastName === "") return;
     updateUserData({ ...userData, ...editedData });
     setUserData({ ...userData, ...editedData });
     handleToggleEdit();
