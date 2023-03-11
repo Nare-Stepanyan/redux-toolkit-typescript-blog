@@ -20,7 +20,7 @@ const AddPostModal = ({
   setToggleAddPost,
   setNewCreatedPost,
 }: IAddPostProps) => {
-  const [createArticle, { data, error }] = useCreateArticleMutation();
+  const [createArticle, { data }] = useCreateArticleMutation();
   const [newPost, setNewPost] = useState<IArticle>({
     title: "",
     author: "",
@@ -51,7 +51,11 @@ const AddPostModal = ({
     createArticle(newPostData);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleInputChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     const { value, name } = e.target;
     setnewPostData({ ...newPostData, [name]: value });
   };
@@ -59,6 +63,8 @@ const AddPostModal = ({
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
+    const { title, text, image } = newPostData;
+    if (title === "" || text === "" || image === "") return;
     setnewPostData({ ...newPost, ...newPostData });
     handleAddPost();
   };
@@ -80,13 +86,13 @@ const AddPostModal = ({
           />
         </div>
         <div className={`${styles.modalInput} mb-20`}>
-          <input
-            type="textarea"
+          <textarea
             name="text"
             placeholder="Article text"
             className="pa-15"
             style={{ height: "300px", width: "100%" }}
-            onChange={handleInputChange}
+            cols={60}
+            onChange={(e) => handleInputChange(e)}
           />
         </div>
         <div className={`${styles.modalInput} mb-20`}>

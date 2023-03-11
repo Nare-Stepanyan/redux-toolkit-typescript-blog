@@ -5,7 +5,8 @@
   color: $dark-blue;
 }
 .modalInput {
-  input {
+  input,
+  textarea {
     @include text-mulish(400, 18, 22);
     width: 100%;
     border: 1px solid $cyan-blue;
